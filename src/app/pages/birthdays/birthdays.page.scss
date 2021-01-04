@@ -1,0 +1,24 @@
+ion-header{
+    ion-toolbar{
+        --min-height: 60px
+    } 
+
+    ion-segment{
+            --background: var(--ion-color-unimed-secondary);
+        ion-segment-button{ 
+            --indicator-height: 48px;
+             --background-checked:  var(--ion-color-ligth);
+            --indicator-color:  var(--ion-color-unimed-secondary);
+             --color-checked: #ffffff;
+            --color: #00bb6c; 
+        }
+        ion-segment-button::part(indicator){
+                height: 2px;
+
+        }
+        ion-segment-button::part( indicator-background){
+            background: var(--ion-color-unimed-active);
+            
+    }
+    }
+}

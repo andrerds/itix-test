@@ -1,0 +1,40 @@
+<ion-header class="ion-no-border">
+
+  <ion-toolbar color="unimed-primary">
+    <ion-buttons slot="start">
+      <ion-button (click)="onClick()" fill="clear">
+        <ion-icon *ngIf="iconsdefault" slot="icon-only" class="iconsize" name="chevron-back" color="light" ></ion-icon>
+        <fa-icon  *ngIf="!iconsdefault" [icon]="['fas', 'angle-left']" size="1x" color="light"></fa-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-title class="ion-text-uppercase" (click)="iconsdefault = !iconsdefault">
+      Aniversariantes
+    </ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="onClick()" fill="clear">
+        <ion-icon *ngIf="iconsdefault" slot="icon-only" class="iconsize" name="menu" color="light"></ion-icon>
+        <fa-icon *ngIf="!iconsdefault" [icon]="['fas', 'bars']"  class="iconsize"  color="warning"></fa-icon> 
+      </ion-button>
+    </ion-buttons>
+
+  </ion-toolbar> 
+
+  <ion-segment  mode="md" (ionChange)="segmentChanged($event)" value="birthdays">
+    <ion-segment-button  value="birthdays">
+      <ion-label>Aniversários</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="unimed">
+      <ion-label >Unimed</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+</ion-header>
+
+<ion-content class="ion-padding">
+ <ion-text color="primary">
+   <h1> Veja os cooperados que comemoram aniversário. Selecione <br> uma data ou pesquise pelo nome.  </h1>
+ </ion-text>
+
+</ion-content>
