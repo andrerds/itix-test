@@ -15,7 +15,8 @@ export class BirthdaysPage implements OnInit {
   public iconsdefault = false;
   public segmentselected = 'birthdays';
   public title = 'Aniversariantes'; 
-
+  public datenow = new Date().toISOString();
+  
   public searchBirthdays: IBirthdays[];
   
   public monthNames = [

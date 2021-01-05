@@ -63,15 +63,15 @@
       <ion-item>
         <ion-label class="ion-text-uppercase title"><strong>Aniversariantes do dia</strong></ion-label>
         <div slot="end" class="dateselected">
-          <span class="day">30</span>
-          <div class="month">jan</div>
+          <span class="day"> {{ datenow | date: 'dd'}} </span>
+          <div class="month"> {{ datenow | date: 'MMM'}}</div>
         </div>
       </ion-item>
 
     </ion-card-header>
 
     <ion-card-content class="ion-no-margin ion-no-padding">
-      <ng-container *ngIf="allBirthdays.length > 1">
+      <ng-container *ngIf="allBirthdays.length > 0">
         <ion-list lines="none">
           <ion-item class="ion-no-margin" *ngFor="let birthday of resultsBirthdays" button detail="false">
             <ion-label class="ion-no-margin"> {{ birthday?.name }} </ion-label>
