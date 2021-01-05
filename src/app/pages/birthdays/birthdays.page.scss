@@ -6,7 +6,7 @@ ion-header{
         --min-height: 60px;
         ion-title{
             font-size: 16px 
-        }
+         }
         }
         
         ion-segment {
@@ -30,10 +30,7 @@ ion-header{
         }
 }
 
-
-
 ion-content{
-    
     .h1custom{
         font-size: 13px;
         color: #5b5c65;
@@ -47,16 +44,16 @@ ion-content{
          --background: trasparent;
      }
         &.carddate{
-            ion-item{
-                margin: 4px 0 auto;
-            }
+                ion-item{
+                    margin: 4px 0 auto;
+                }
             @include BoxShadow(2);
             ion-icon {
                 color:  #00995D;
             }
-            .iondatetimecustom{
-                color:  #00995D;
-            }
+                .iondatetimecustom{
+                    color:  #00995D;
+                }
         }
         &.cardinput{
             box-shadow: none;
@@ -66,23 +63,39 @@ ion-content{
             ion-input{
                 margin: 8px 0 auto;
                 --color: #5b5c85;
-                --placeholder-font-style: bold;
-                // --placeholder-font-weight: 400
+                --placeholder-font-style: bold; 
             }
         } 
         &.cardbirthdays{
+            @include BoxShadow(2);
+
             .title{
                 color: #5b5c65;
                 font-size: 14px;
             }
             .dateselected{
+                display: block;
+                position: relative;
+                right: -5%;
+                top: -5px;
                 .day{
                     font-size: 22px;
-                    font-weight: 100;
+                    font-weight: 400;
+                    color: #5b5c65;
                 }
                 .month{
                     font-size: 12px;
+                    position: relative;
+                    right: -5px;
+                    color: #00995d;
                 }
+            }
+            ion-card-content {
+               ion-list{
+                ion-item{
+                    height: 32px !important;
+                }
+               }
             }
            
         }

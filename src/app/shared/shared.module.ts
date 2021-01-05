@@ -14,16 +14,15 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     IonicModule,
     ReactiveFormsModule,
-    FontAwesomeModule,
-    HttpClientModule
+    FontAwesomeModule
+  
   ], 
   exports:[
     CommonModule,
     FormsModule,
     IonicModule,
     ReactiveFormsModule,
-    FontAwesomeModule,
-    HttpClientModule
+    FontAwesomeModule
   ]
 })
 export class SharedModule { }

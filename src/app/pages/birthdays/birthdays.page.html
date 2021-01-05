@@ -70,12 +70,12 @@
     </ion-card-header>
     
     <ion-card-content class="ion-no-margin ion-no-padding">
-      <ion-list   lines="none">
-        <ion-item  class="ion-no-margin"  *ngFor="let user of [].constructor(4)">
-          <ion-label class="ion-no-margin">Awesome Label</ion-label>
+      <ion-list lines="none" *ngIf="(birthdays$) as birthdays">
+        <ion-item  class="ion-no-margin"   *ngFor="let birthday of birthdays | async">
+          <ion-label class="ion-no-margin"> {{ birthday?.name }} </ion-label>
         </ion-item>
       </ion-list>
-      
     </ion-card-content>
+
   </ion-card>
 </ion-content>

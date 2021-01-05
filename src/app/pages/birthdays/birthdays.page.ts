@@ -42,7 +42,8 @@ export class BirthdaysPage implements OnInit {
  async ngOnInit()  {
     const loading = await this.loadCtrl.create({message: 'Aguarde ...'});
     this.birthdays$ = this.mocExampleService.getAll();
-    this.birthdays$.pipe(take(1)).subscribe(_ =>  loading.dismiss());
+    loading.present();
+    this.birthdays$.pipe(take(1)).subscribe(_res => loading.dismiss());
   }
 
   public segmentChanged(event: HTMLIonSegmentElement): void {
