@@ -1,7 +1,4 @@
-// Ionic Variables and Theming. For more info, please see:
-// http://ionicframework.com/docs/theming/
-
-/** Ionic CSS Variables **/
+/** Imports custom scss **/
 @import "./custom.scss";
 @import "./customshadows.scss";
 :root {
@@ -117,7 +114,6 @@
    --ion-color-unimed-background-shade: #d5d5d5;
    --ion-color-unimed-background-tint: #f3f3f3;
 
-  
 }
  
 /* Primary */
@@ -167,4 +163,24 @@
   --ion-color-contrast-rgb: var(--ion-color-unimed-background-contrast-rgb);
   --ion-color-shade: var(--ion-color-unimed-background-shade);
   --ion-color-tint: var(--ion-color-unimed-background-tint);
+}
+.ios{
+  ion-input{ 
+      --padding-start: 10px;
+  }
+  ion-card{
+    &.cardbirthdays{
+      padding-bottom: 15px !important;
+    }
+    &.carddate {
+      ion-item { 
+          --padding-start: 15px  !important;
+          --inner-padding-end: 5px  !important;
+          --inner-padding-start: 0px;
+          
+      }
+       
+  }
+   
+  }
 }

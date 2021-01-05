@@ -14,7 +14,10 @@ export class BirthdaysPage implements OnInit {
 
   public iconsdefault = false;
   public segmentselected = 'birthdays';
-  public title = 'Aniversariantes';
+  public title = 'Aniversariantes'; 
+
+  public searchBirthdays: IBirthdays[];
+  
   public monthNames = [
     'JANEIRO',
     'FEVEREIRO',
@@ -29,8 +32,11 @@ export class BirthdaysPage implements OnInit {
     'NOVEMBRO',
     'DEZEMBRO',
   ];
+
+  private birthdays$: Observable<IBirthdays[]>;
   
-  public birthdays$:Observable<IBirthdays[]>;
+  public resultsBirthdays: IBirthdays[] = [];
+  public allBirthdays: IBirthdays[] = [];
 
   constructor(
     private navCtrl: NavController,
@@ -39,15 +45,14 @@ export class BirthdaysPage implements OnInit {
   ) {
   }
 
- async ngOnInit()  {
-    const loading = await this.loadCtrl.create({message: 'Aguarde ...'});
-    this.birthdays$ = this.mocExampleService.getAll();
-    loading.present();
-    this.birthdays$.pipe(take(1)).subscribe(_res => loading.dismiss());
+  async ngOnInit() {
+    // Listando aniversariantes.
+    this.searchBirthdays = [];
+    this.getAllBirthdays(); 
+    
   }
 
   public segmentChanged(event: HTMLIonSegmentElement): void {
-
     if (event.value === this.segmentselected) {
       this.title = 'Aniversariantes';
     } else {
@@ -56,8 +61,54 @@ export class BirthdaysPage implements OnInit {
 
   }
 
+  public searchFilter(event: any) {
+     this.initializeList()
+    let terms = event.value;
+    if(!terms && (terms = terms.trim())  === '') {
+      return;
+    };
+
+    console.log(terms);
+   
+
+    this.resultsBirthdays = this.resultsBirthdays.filter((v) => {
+      if(v.name && terms) {
+        if (v.name.toLowerCase().indexOf(terms.toLowerCase()) > -1) {
+          return true;
+        }
+
+        if (v.birthday.toLowerCase().indexOf(terms.toLowerCase()) > -1){
+          return true;
+        }
+
+        if (v.birthday.toLowerCase().indexOf(terms.toLowerCase()) > - 1){
+          return true;
+        }
+
+        return false;
+      }
+    });
+
+  }
+
+
+  private async getAllBirthdays(): Promise<void> {
+    const loading = await this.loadCtrl.create({ message: 'Aguarde ...' });
+    this.birthdays$ = this.mocExampleService.getAll();
+    loading.present();
+    this.birthdays$.pipe(take(1)).subscribe((res) => {
+      this.allBirthdays = this.resultsBirthdays = res;
+           loading.dismiss();
+    })
+  }
+
+    
+
   public toBack(): void {
     this.navCtrl.back();
   }
 
+  private initializeList(): void {
+    this.resultsBirthdays = this.allBirthdays
+  }
 }

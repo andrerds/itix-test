@@ -1,103 +1,115 @@
 @import "./../../../theme/customshadows.scss";
 
-ion-header{
-
-    ion-toolbar{
+ion-header {
+    ion-toolbar {
         --min-height: 60px;
-        ion-title{
-            font-size: 16px 
-         }
+        ion-title {
+            font-size: 16px;
         }
-        
-        ion-segment {
-                --background: var(--ion-color-unimed-secondary);
-            ion-segment-button{ 
-                --indicator-height: 48px;
-                --background-checked:  var(--ion-color-ligth);
-                --indicator-color:  var(--ion-color-unimed-secondary);
-                --color-checked: #ffffff;
-                --color: #00bb6c;
-                ion-label{
-                    font-size: 11px;
-                }
-            }
-            ion-segment-button::part(indicator){
-                height: 2px;   
-            }
-            ion-segment-button::part( indicator-background){
-                background: var(--ion-color-unimed-active);
+    }
+
+    ion-segment {
+        --background: var(--ion-color-unimed-secondary);
+        ion-segment-button {
+            --indicator-height: 48px;
+            --background-checked: var(--ion-color-ligth);
+            --indicator-color: var(--ion-color-unimed-secondary);
+            --color-checked: #ffffff;
+            --color: #00bb6c;
+            ion-label {
+                font-size: 11px;
             }
         }
+        ion-segment-button::part(indicator) {
+            height: 2px;
+        }
+        ion-segment-button::part(indicator-background) {
+            background: var(--ion-color-unimed-active);
+        }
+    }
 }
 
-ion-content{
-    .h1custom{
+ion-content {
+    .h1custom {
         font-size: 13px;
         color: #5b5c65;
     }
 
-    ion-card{  
-        min-height: 55px; 
+    ion-card {
+        min-height: 55px;
         background: #fff;
         border-radius: 6px;
-     ion-item{
-         --background: trasparent;
-     }
-        &.carddate{
-                ion-item{
-                    margin: 4px 0 auto;
+        ion-item {
+            --background: trasparent;
+        }
+        &.carddate {
+            ion-item {
+                margin: 5px 0 auto;
+                --padding-start: 10px;
+                --inner-padding-end: 10px;
+                --inner-padding-start: 0px;
+                ion-icon {
+                    font-size: 22px;
                 }
+            }
             @include BoxShadow(2);
             ion-icon {
-                color:  #00995D;
+                color: #00995d;
             }
-                .iondatetimecustom{
-                    color:  #00995D;
-                }
+            .iondatetimecustom {
+                color: #00995d;
+            }
         }
-        &.cardinput{
+        &.cardinput {
             box-shadow: none;
-            border: solid #cfd3d6  1px;
-            
-            
-            ion-input{
+            border: solid #cfd3d6 1px;
+            ion-input {
                 margin: 8px 0 auto;
                 --color: #5b5c85;
-                --placeholder-font-style: bold; 
+                --placeholder-font-style: bold;
             }
-        } 
-        &.cardbirthdays{
+        }
+        &.cardbirthdays {
             @include BoxShadow(2);
 
-            .title{
+            .title {
                 color: #5b5c65;
                 font-size: 14px;
             }
-            .dateselected{
+            .dateselected {
                 display: block;
                 position: relative;
                 right: -5%;
                 top: -5px;
-                .day{
+                .day {
                     font-size: 22px;
                     font-weight: 400;
                     color: #5b5c65;
                 }
-                .month{
+                .month {
                     font-size: 12px;
                     position: relative;
                     right: -5px;
                     color: #00995d;
                 }
             }
+
             ion-card-content {
-               ion-list{
-                ion-item{
-                    height: 32px !important;
+                ion-list {
+                    ion-item {
+                        --ripple-color: #00995d;
+                        --min-height: 32px !important;
+                    }
                 }
-               }
             }
-           
         }
     }
+}
+
+.fa-icon {
+    color: #00995d;
+    font-size: 22px;
+}
+.fa-icon-top{
+    font-size: 22px;  
 }

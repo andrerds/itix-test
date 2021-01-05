@@ -3,8 +3,8 @@
   <ion-toolbar color="unimed-primary">
     <ion-buttons slot="start">
       <ion-button (click)="toBack()" fill="clear">
-        <ion-icon *ngIf="iconsdefault" slot="icon-only" class="iconsize" name="chevron-back" color="light"></ion-icon>
-        <fa-icon *ngIf="!iconsdefault" [icon]="['fas', 'angle-left']" size="1x" color="light"></fa-icon>
+        <ion-icon *ngIf="iconsdefault" slot="icon-only"  name="chevron-back" color="light"></ion-icon>
+        <fa-icon class="fa-icon-top" *ngIf="!iconsdefault" [icon]="['fas', 'angle-left']"  color="light"></fa-icon>
       </ion-button>
     </ion-buttons>
 
@@ -14,8 +14,8 @@
 
     <ion-buttons slot="end">
       <ion-button (click)="toBack()" fill="clear">
-        <ion-icon *ngIf="iconsdefault" slot="icon-only" class="iconsize" name="menu" color="light"></ion-icon>
-        <fa-icon *ngIf="!iconsdefault" [icon]="['fas', 'bars']" class="iconsize" color="warning"></fa-icon>
+        <ion-icon *ngIf="iconsdefault" slot="icon-only"  name="menu" color="light"></ion-icon>
+        <fa-icon   class="fa-icon-top"  *ngIf="!iconsdefault" [icon]="['fas', 'bars']"  color="warning"></fa-icon>
       </ion-button>
     </ion-buttons>
 
@@ -32,49 +32,52 @@
 
 </ion-header>
 
-<ion-content class="">
+<ion-content>
   <div class="ion-padding-horizontal">
-    <ion-text >
+    <ion-text>
       <h1 class="h1custom">
         Veja os cooperados que comemoram aniversário. Selecione uma data ou pesquise pelo nome.
       </h1>
     </ion-text>
   </div>
 
-  <ion-card class="carddate ion-margin-vertical">
-    <ion-item lines="none">
-      <ion-icon *ngIf="iconsdefault" color="unimed-primary" name="calendar" slot="start"></ion-icon>
-      <fa-icon *ngIf="!iconsdefault" [icon]="['fas', 'calendar']" size="1x" slot="start" color="light"></fa-icon>
-      <ion-datetime class="iondatetimecustom" displayTimezone="" [monthNames]='monthNames' value="JANEIRO - 2021" display-format="MMMM - YYYY">
+  <ion-card class="carddate ion-margin-vertical" button>
+    <ion-item lines="none" >
+      <ion-icon *ngIf="iconsdefault" color="unimed-primary" name="calendar-outline" slot="start"></ion-icon>
+      <fa-icon  class="fa-icon" *ngIf="!iconsdefault" [icon]="['fas', 'calendar-alt']"  slot="start" color="light"></fa-icon>
+      <ion-datetime class="iondatetimecustom" displayTimezone="" [monthNames]='monthNames' value="JANEIRO - 2021"
+        display-format="MMMM - YYYY" cancelText="Cancelar" doneText="Confirmar">
       </ion-datetime>
-      <ion-icon *ngIf="iconsdefault" color="unimed-primary" slot="end" name="add"></ion-icon>
-      <fa-icon *ngIf="!iconsdefault" [icon]="['fas', 'caret-right']" slot="end" size="1x" color="light"></fa-icon>
+      <ion-icon *ngIf="iconsdefault" color="unimed-primary" slot="end" name="caret-forward"></ion-icon>
+      <fa-icon  class="fa-icon"  *ngIf="!iconsdefault" [icon]="['fas', 'caret-right']" slot="end"  color="light"></fa-icon>
     </ion-item>
   </ion-card>
 
   <ion-card class="cardinput ion-margin-vertical mvertical24">
-    <ion-input type="text" inputmode="search" placeholder="Nome do aniversariante"></ion-input>
+    <ion-input type="text" inputmode="search" (ionChange)="searchFilter($event.detail)"
+      placeholder="Nome do aniversariante"></ion-input>
   </ion-card>
 
-  <ion-card class="cardbirthdays ">
-    <ion-card-header class="pl0 pb0">
-     
-        <ion-item>
+  <ion-card class="cardbirthdays">
+    <ion-card-header class="pl0 pb0 pt9">
+      <ion-item>
         <ion-label class="ion-text-uppercase title"><strong>Aniversariantes do dia</strong></ion-label>
         <div slot="end" class="dateselected">
           <span class="day">30</span>
           <div class="month">jan</div>
         </div>
       </ion-item>
-   
+
     </ion-card-header>
-    
+
     <ion-card-content class="ion-no-margin ion-no-padding">
-      <ion-list lines="none" *ngIf="(birthdays$) as birthdays">
-        <ion-item  class="ion-no-margin"   *ngFor="let birthday of birthdays | async">
-          <ion-label class="ion-no-margin"> {{ birthday?.name }} </ion-label>
-        </ion-item>
-      </ion-list>
+      <ng-container *ngIf="allBirthdays.length > 1">
+        <ion-list lines="none">
+          <ion-item class="ion-no-margin" *ngFor="let birthday of resultsBirthdays" button detail="false">
+            <ion-label class="ion-no-margin"> {{ birthday?.name }} </ion-label>
+          </ion-item>
+        </ion-list>
+      </ng-container>
     </ion-card-content>
 
   </ion-card>
