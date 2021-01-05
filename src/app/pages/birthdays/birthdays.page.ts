@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController } from '@ionic/angular';
+import { LoadingController, NavController } from '@ionic/angular';
+import { Observable } from 'rxjs';
+import { take } from 'rxjs/operators';
+import { MocExampleService } from 'src/app/services/moc-example.service';
+import { IBirthdays } from '../model/moc/birthdays.model';
 
 @Component({
   selector: 'app-birthdays',
@@ -24,13 +28,21 @@ export class BirthdaysPage implements OnInit {
     'OUTUBRO',
     'NOVEMBRO',
     'DEZEMBRO',
-  ]
+  ];
+  
+  public birthdays$:Observable<IBirthdays[]>;
+
   constructor(
-    private navCtrl: NavController
+    private navCtrl: NavController,
+    private loadCtrl: LoadingController,
+    private mocExampleService: MocExampleService
   ) {
   }
 
-  ngOnInit(): void {
+ async ngOnInit()  {
+    const loading = await this.loadCtrl.create({message: 'Aguarde ...'});
+    this.birthdays$ = this.mocExampleService.getAll();
+    this.birthdays$.pipe(take(1)).subscribe(_ =>  loading.dismiss());
   }
 
   public segmentChanged(event: HTMLIonSegmentElement): void {

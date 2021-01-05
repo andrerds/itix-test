@@ -33,43 +33,49 @@
 </ion-header>
 
 <ion-content class="">
-  <div class="ion-padding-horizontal ptop12 pbottom12">
+  <div class="ion-padding-horizontal">
     <ion-text >
-      <h1 class="h1custom ion-no-margin">
+      <h1 class="h1custom">
         Veja os cooperados que comemoram aniversário. Selecione uma data ou pesquise pelo nome.
       </h1>
     </ion-text>
   </div>
 
-  <ion-card class="carddate mvertical16">
+  <ion-card class="carddate ion-margin-vertical">
     <ion-item lines="none">
       <ion-icon *ngIf="iconsdefault" color="unimed-primary" name="calendar" slot="start"></ion-icon>
       <fa-icon *ngIf="!iconsdefault" [icon]="['fas', 'calendar']" size="1x" slot="start" color="light"></fa-icon>
-      <ion-datetime displayTimezone="" [monthNames]='monthNames' value="JANEIRO - 2021" display-format="MMMM - YYYY">
+      <ion-datetime class="iondatetimecustom" displayTimezone="" [monthNames]='monthNames' value="JANEIRO - 2021" display-format="MMMM - YYYY">
       </ion-datetime>
       <ion-icon *ngIf="iconsdefault" color="unimed-primary" slot="end" name="add"></ion-icon>
       <fa-icon *ngIf="!iconsdefault" [icon]="['fas', 'caret-right']" slot="end" size="1x" color="light"></fa-icon>
     </ion-item>
   </ion-card>
 
-  <ion-card class="cardinput mvertical16">
+  <ion-card class="cardinput ion-margin-vertical mvertical24">
     <ion-input type="text" inputmode="search" placeholder="Nome do aniversariante"></ion-input>
   </ion-card>
 
-  <ion-card class="cardbirthdays mvertical16">
-    <ion-card-header>
-      <ion-item lines="full">
+  <ion-card class="cardbirthdays ">
+    <ion-card-header class="pl0 pb0">
+     
+        <ion-item>
         <ion-label class="ion-text-uppercase title"><strong>Aniversariantes do dia</strong></ion-label>
         <div slot="end" class="dateselected">
           <span class="day">30</span>
           <div class="month">jan</div>
         </div>
       </ion-item>
+   
     </ion-card-header>
-    <ion-card-content>
-      <ion-item lines="none" *ngFor="let user of [].constructor(4)">
-        <ion-label>Awesome Label</ion-label>
-      </ion-item>
+    
+    <ion-card-content class="ion-no-margin ion-no-padding">
+      <ion-list   lines="none">
+        <ion-item  class="ion-no-margin"  *ngFor="let user of [].constructor(4)">
+          <ion-label class="ion-no-margin">Awesome Label</ion-label>
+        </ion-item>
+      </ion-list>
+      
     </ion-card-content>
   </ion-card>
 </ion-content>

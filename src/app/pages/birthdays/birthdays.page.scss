@@ -1,3 +1,5 @@
+@import "./../../../theme/customshadows.scss";
+
 ion-header{
 
     ion-toolbar{
@@ -37,18 +39,35 @@ ion-content{
         color: #5b5c65;
     }
 
-    ion-card{ 
-        border-radius: 5px;
+    ion-card{  
+        min-height: 55px; 
+        background: #fff;
+        border-radius: 6px;
      ion-item{
          --background: trasparent;
      }
         &.carddate{
-
+            ion-item{
+                margin: 4px 0 auto;
+            }
+            @include BoxShadow(2);
+            ion-icon {
+                color:  #00995D;
+            }
+            .iondatetimecustom{
+                color:  #00995D;
+            }
         }
         &.cardinput{
-            min-height: 44px;
+            box-shadow: none;
+            border: solid #cfd3d6  1px;
+            
+            
             ion-input{
-                margin: 5px 0;
+                margin: 8px 0 auto;
+                --color: #5b5c85;
+                --placeholder-font-style: bold;
+                // --placeholder-font-weight: 400
             }
         } 
         &.cardbirthdays{
