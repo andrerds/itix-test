@@ -2,6 +2,7 @@
 // http://ionicframework.com/docs/theming/
 
 /** Ionic CSS Variables **/
+@import "./custom.scss";
 :root {
   /** primary **/
   --ion-color-primary: #3880ff;
@@ -115,15 +116,7 @@
    --ion-color-unimed-background-shade: #d5d5d5;
    --ion-color-unimed-background-tint: #f3f3f3;
 
-   @font-face{
-    font-family: 'Roboto Light';
-    font-style: 'light';
-    src: './assets/fonts/roboto/Roboto-Light.ttf'
-}
-
-* {
-  --ion-font-family: 'Roboto';
-  }
+  
 }
  
 /* Primary */

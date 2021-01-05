@@ -33,29 +33,31 @@
 </ion-header>
 
 <ion-content class="">
-  <h1 class="h1custom">
-    Veja os cooperados que comemoram aniversário. Selecione <br> uma data ou pesquise pelo nome. </h1>
+  <div class="ion-padding-horizontal ptop12 pbottom12">
+    <ion-text >
+      <h1 class="h1custom ion-no-margin">
+        Veja os cooperados que comemoram aniversário. Selecione uma data ou pesquise pelo nome.
+      </h1>
+    </ion-text>
+  </div>
 
-
-  <ion-card class="carddate">
+  <ion-card class="carddate mvertical16">
     <ion-item lines="none">
-      <ion-icon  *ngIf="iconsdefault" color="unimed-primary" name="calendar" slot="start"></ion-icon>
-      <fa-icon *ngIf="!iconsdefault" [icon]="['fas', 'calendar']" size="1x"  slot="start" color="light"></fa-icon>
-
-      <ion-datetime  displayTimezone="" [monthNames]='monthNames' value="JANEIRO - 2021" display-format="MMMM - YYYY">
+      <ion-icon *ngIf="iconsdefault" color="unimed-primary" name="calendar" slot="start"></ion-icon>
+      <fa-icon *ngIf="!iconsdefault" [icon]="['fas', 'calendar']" size="1x" slot="start" color="light"></fa-icon>
+      <ion-datetime displayTimezone="" [monthNames]='monthNames' value="JANEIRO - 2021" display-format="MMMM - YYYY">
       </ion-datetime>
-      <ion-icon  *ngIf="iconsdefault" color="unimed-primary" slot="end" name="add"></ion-icon>
+      <ion-icon *ngIf="iconsdefault" color="unimed-primary" slot="end" name="add"></ion-icon>
       <fa-icon *ngIf="!iconsdefault" [icon]="['fas', 'caret-right']" slot="end" size="1x" color="light"></fa-icon>
-
     </ion-item>
   </ion-card>
 
-  <ion-card class="ion-margin-vertical cardinput">
+  <ion-card class="cardinput mvertical16">
     <ion-input type="text" inputmode="search" placeholder="Nome do aniversariante"></ion-input>
   </ion-card>
 
-  <ion-card class="cardbirthdays">
-    <ion-card-header> 
+  <ion-card class="cardbirthdays mvertical16">
+    <ion-card-header>
       <ion-item lines="full">
         <ion-label class="ion-text-uppercase title"><strong>Aniversariantes do dia</strong></ion-label>
         <div slot="end" class="dateselected">

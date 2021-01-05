@@ -1,7 +1,10 @@
 ion-header{
 
     ion-toolbar{
-        --min-height: 60px
+        --min-height: 60px;
+        ion-title{
+            font-size: 16px 
+        }
         }
         
         ion-segment {
@@ -11,7 +14,10 @@ ion-header{
                 --background-checked:  var(--ion-color-ligth);
                 --indicator-color:  var(--ion-color-unimed-secondary);
                 --color-checked: #ffffff;
-                --color: #00bb6c; 
+                --color: #00bb6c;
+                ion-label{
+                    font-size: 11px;
+                }
             }
             ion-segment-button::part(indicator){
                 height: 2px;   
@@ -22,11 +28,12 @@ ion-header{
         }
 }
 
+
+
 ion-content{
+    
     .h1custom{
         font-size: 13px;
-        padding: 0 15px;
-        margin: 15px 0;
         color: #5b5c65;
     }
 
