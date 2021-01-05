@@ -1,24 +1,64 @@
 ion-header{
+
     ion-toolbar{
         --min-height: 60px
-    } 
-
-    ion-segment{
-            --background: var(--ion-color-unimed-secondary);
-        ion-segment-button{ 
-            --indicator-height: 48px;
-             --background-checked:  var(--ion-color-ligth);
-            --indicator-color:  var(--ion-color-unimed-secondary);
-             --color-checked: #ffffff;
-            --color: #00bb6c; 
         }
-        ion-segment-button::part(indicator){
-                height: 2px;
-
+        
+        ion-segment {
+                --background: var(--ion-color-unimed-secondary);
+            ion-segment-button{ 
+                --indicator-height: 48px;
+                --background-checked:  var(--ion-color-ligth);
+                --indicator-color:  var(--ion-color-unimed-secondary);
+                --color-checked: #ffffff;
+                --color: #00bb6c; 
+            }
+            ion-segment-button::part(indicator){
+                height: 2px;   
+            }
+            ion-segment-button::part( indicator-background){
+                background: var(--ion-color-unimed-active);
+            }
         }
-        ion-segment-button::part( indicator-background){
-            background: var(--ion-color-unimed-active);
-            
+}
+
+ion-content{
+    .h1custom{
+        font-size: 13px;
+        padding: 0 15px;
+        margin: 15px 0;
+        color: #5b5c65;
     }
+
+    ion-card{ 
+        border-radius: 5px;
+     ion-item{
+         --background: trasparent;
+     }
+        &.carddate{
+
+        }
+        &.cardinput{
+            min-height: 44px;
+            ion-input{
+                margin: 5px 0;
+            }
+        } 
+        &.cardbirthdays{
+            .title{
+                color: #5b5c65;
+                font-size: 14px;
+            }
+            .dateselected{
+                .day{
+                    font-size: 22px;
+                    font-weight: 100;
+                }
+                .month{
+                    font-size: 12px;
+                }
+            }
+           
+        }
     }
 }

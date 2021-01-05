@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 
@@ -9,7 +9,10 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { registerLocaleData } from '@angular/common';
+import localept from '@angular/common/locales/pt';
 
+registerLocaleData(localept)
  
 
 @NgModule({
@@ -24,7 +27,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
   providers: [
     StatusBar,
     SplashScreen,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    {provide: LOCALE_ID, useValue:'pt'}
   ],
   bootstrap: [AppComponent]
 })
